@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Result</title>
+        <!-- Fevicon -->
+        <link rel="icon" type="image/png" href="../images/fevicon.png">
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="../stylesheets/style.css">
+        <!-- Js -->
+        {{!-- <script src="../javascript/app.js"></script> --}}
+    </head>
+    <body>
+        <!-- Header-->
+        {{>header}}
+
+        <!-- Main Container -->
+        {{#each payload}}
+
+        <div class="event-container">
+            <div class="event-content">
+                <div>
+                    <img src={{this.TOURNAMENT_IMAGE}}>
+                </div>
+                <div>
+                    <p>Event Name : {{this.NAME}}</p>
+                    <p>Oraganized Country : {{this.COUNTRY_NAME}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-container">
+            {{#each this.EVENTS}}
+            <div class="sub-container">
+                <div class="stage">
+                    {{this.STAGE}}
+                    <img src="../images/live.png">
+                </div>
+
+                <div class="team">
+                
+                    {{#if this.HOME_IMAGES}}
+                    <img src={{this.HOME_IMAGES}}>
+                    {{else}}
+                    <img src="../images/player.png">
+                    {{/if}}
+                    <p>{{this.HOME_NAME}}</p>
+                    <p>Score: <b>{{this.HOME_SCORE_CURRENT}}/
+                            {{this.HOME_SCORE_PART_2_OVERS_OUTS_WICKETS}}</b></p>
+                </div>
+
+                <div class="team">
+                    {{#if this.AWAY_IMAGES}}
+                    <img src={{this.AWAY_IMAGES}}>
+                    {{else}}
+                    <img src="../images/player.png">
+                    {{/if}}
+                    <p>{{this.AWAY_NAME}}</p>
+                    <p>Score : <b>{{this.AWAY_SCORE_CURRENT}}/
+                            {{this.AWAY_SCORE_PART_2_OVERS_OUTS_WICKETS}}</b></p>
+                </div>
+
+                <p>{{this.CRICKET_LIVE_SENTENCE}}</p>
+
+            </div>
+            {{/each}}
+        </div>
+        {{/each}}
+
+
+        <div class="message">
+            <p>follow for more</p>
+        </div>
+
+        <!-- Footer -->
+        {{>footer}}
+        <!-- Javascripts -->
+        <script rel="javascript" src="../javascript/app.js"></script>
+    </body>
+</html>

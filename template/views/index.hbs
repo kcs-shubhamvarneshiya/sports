@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <!-- Fevicon -->
+        <link rel="icon" type="image/png" href="../images/fevicon.png">
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="../stylesheets/style.css">
+    </head>
+    <body>
+        <!-- Header-->
+        {{>header}}
+
+        <!-- Main Content Container -->
+
+        {{!-- Cricket Container --}}
+
+        <!-- Event Container-->
+        <div class="event-container">
+            <h3>Cricket</h3>
+            <div class="event-content">
+                <div>
+                    <img src={{Cpayload.TOURNAMENT_IMAGE}}>
+                </div>
+                <div>
+                    <p>Event Name : {{Cpayload.NAME}}</p>
+                    <p>Oraganized Country : {{Cpayload.COUNTRY_NAME}}</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-container">
+            {{#each Cpayload.EVENTS}}
+            <div class="sub-container">
+                <div class="stage">
+                    {{this.STAGE}}
+                    <img src="../images/live.png">
+
+                </div>
+                <div class="team">
+                    {{#if this.HOME_IMAGES}}
+                    <img src={{this.HOME_IMAGES}}>
+                    {{else}}
+                    <img src="../images/player.png">
+                    {{/if}}
+                    <p>{{this.HOME_NAME}}</p>
+                    <p>Score: <b>{{this.HOME_SCORE_CURRENT}}/
+                            {{this.HOME_SCORE_PART_2_OVERS_OUTS_WICKETS}}</b></p>
+                    <p>Overs {{this.HOME_SCORE_PART_1_OVERS_OUTS_WICKETS}}</p>
+                </div>
+                <div class="team">
+                    {{#if this.AWAY_IMAGES}}
+                    <img src={{this.AWAY_IMAGES}}>
+                    {{else}}
+                    <img src="../images/player.png">
+                    {{/if}}
+                    <p>{{this.AWAY_NAME}}</p>
+                    <p>Score : <b>{{this.AWAY_SCORE_CURRENT}}/
+                            {{this.AWAY_SCORE_PART_2_OVERS_OUTS_WICKETS}}</b></p>
+                    <p>Overs</p>
+                </div>
+                <p>{{this.CRICKET_LIVE_SENTENCE}}</p>
+            </div>
+            {{/each}}
+        </div>
+
+        <div class="load-more">
+            <p><a href="/sports/13"><img src="../images/more.png"></a></p>
+        </div>
+
+        {{!-- Hokey Container --}}
+
+        <!-- Event Headers -->
+        <div class="event-container">
+            <h3>Hockey</h3>
+            <div class="event-content">
+                <div>
+                    <img src={{Hpayload.TOURNAMENT_IMAGE}}>
+                </div>
+                <div>
+                    <p>Event Name : {{Hpayload.NAME}}</p>
+                    <p>Oraganized Country : {{Hpayload.COUNTRY_NAME}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-container">
+            {{#each Hpayload.EVENTS}}
+            <div class="sub-container">
+
+                <div class="stage">
+                    {{this.STAGE}}
+                    <img src="../images/live.png">
+                </div>
+
+                <div class="team">
+                    {{#if this.HOME_IMAGES}}
+                    <img src={{this.HOME_IMAGES}}>
+                    {{else}}
+                    <img src="../images/player.png">
+                    {{/if}}
+                     <p>{{this.HOME_NAME}}</p>
+                    <p>Score: <b>{{this.HOME_SCORE_CURRENT}}/
+                            {{this.HOME_SCORE_PART_2_OVERS_OUTS_WICKETS}}</b></p>
+                </div>
+
+                <div class="team">
+                    {{#if this.AWAY_IMAGES}}
+                    <img src={{this.AWAY_IMAGES}}>
+                    {{else}}
+                    <img src="../images/player.png">
+                    {{/if}}
+                    <p>{{this.AWAY_NAME}}</p>
+                    <p>Score : <b>{{this.AWAY_SCORE_CURRENT}}/
+                            {{this.AWAY_SCORE_PART_2_OVERS_OUTS_WICKETS}}</b></p>
+                </div>
+
+                <p>{{this.CRICKET_LIVE_SENTENCE}}</p>
+
+
+            </div>
+            {{/each}}
+        </div>
+
+        <div class="load-more">
+            <p><a href="/sports/4"><img src="../images/more.png"></a></p>
+        </div>
+
+        {{!-- Table Tannis Container --}}
+
+        <!-- Event Header -->
+        <div class="event-container">
+            <h3>Table Tannis</h3>
+            <div class="event-content">
+                <div>
+                    <img src={{Tpayload.TOURNAMENT_IMAGE}}>
+                </div>
+                <div>
+                    <p>Event Name : {{Tpayload.NAME}}</p>
+                    <p>Oraganized Country : {{Tpayload.COUNTRY_NAME}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-container">
+            {{#each Tpayload.EVENTS}}
+            <div class="sub-container">
+
+                <div class="stage">
+                    {{this.STAGE}}
+                    <img src="../images/live.png">
+                </div>
+
+                <div class="team">
+                    {{#if this.HOME_IMAGES}}
+                    <img src={{this.HOME_IMAGES}}>
+                    {{else}}
+                    <img src="../images/player.png">
+                    {{/if}}
+
+                    <p>{{this.HOME_NAME}}</p>
+                    <p>Score: <b>{{this.HOME_SCORE_CURRENT}}/
+                            {{this.HOME_SCORE_PART_2_OVERS_OUTS_WICKETS}}</b></p>
+                </div>
+
+                <div class="team">
+                    {{#if this.AWAY_IMAGES}}
+                    <img src={{this.AWAY_IMAGES}}>
+                    {{else}}
+                    <img src="../images/player.png">
+                    {{/if}}
+
+                    <p>{{this.AWAY_NAME}}</p>
+                    <p>Score : <b>{{this.AWAY_SCORE_CURRENT}}/
+                            {{this.AWAY_SCORE_PART_2_OVERS_OUTS_WICKETS}}</b></p>
+                </div>
+
+                <p>{{this.CRICKET_LIVE_SENTENCE}}</p>
+
+            </div>
+            {{/each}}
+        </div>
+
+        <div class="load-more">
+            <p><a href="/sports/25"><img src="../images/more.png"></a></p>
+        </div>
+
+        <!-- Sample Container -->
+        <div class="message">
+            <p>Follow me for more updates</p>
+        </div>
+
+        <!-- Footer -->
+        {{>footer}}
+
+        <!-- Javascripts -->
+        <script rel="javascript" src="../javascript/app.js"></script>
+
+    </body>
+</html>
