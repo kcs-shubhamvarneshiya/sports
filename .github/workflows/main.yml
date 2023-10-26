@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Use Secret in Workflow
-        run: echo `My secret key ${{secrets.MY_SECRET_KEY}}`
+        run: echo `My secret key ${{secrets.SONAR_TOKEN}}`
