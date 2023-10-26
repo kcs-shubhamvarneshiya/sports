@@ -11,3 +11,6 @@ jobs:
     steps:
       - name: Use Secret in Workflow
         run: echo `My secret key ${{secrets.SONAR_TOKEN}}`
+      - name: Another Secret in Workflow
+        run: echo `greate`
+    
