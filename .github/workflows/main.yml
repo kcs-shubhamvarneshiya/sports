@@ -1,4 +1,4 @@
-name: My Workflow
+name: Build
 
 on:
   push:
@@ -6,11 +6,22 @@ on:
       - main
 
 jobs:
-  my-job:
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Use Secret in Workflow
-        run: echo `My secret key ${{secrets.SONAR_TOKEN}}`
-      - name: Another Secret in Workflow
-        run: echo `greate`
+      - name: Sample work flow
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          run: echo `great`
+      - uses: sonarsource/sonarqube-quality-gate-action@master
+        timeout-minutes: 5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      
     
