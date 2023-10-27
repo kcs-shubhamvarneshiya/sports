@@ -19,4 +19,5 @@ jobs:
       
     - name: SonarQube Scan
       run: |
-         npm run sonar
+          sonar-scanner.bat -D"sonar.projectKey=sports" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.login=sqp_d66ddb36826ffe7bc6a7a9dcdee95bad25d89b31"
+          echo "analyzing..."
