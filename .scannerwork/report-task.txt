@@ -1,0 +1,6 @@
+projectKey=sports
+serverUrl=http://localhost:9000
+serverVersion=9.9.0.65466
+dashboardUrl=http://localhost:9000/dashboard?id=sports
+ceTaskId=AYtv5SPBtXu2FafsRUwD
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYtv5SPBtXu2FafsRUwD
