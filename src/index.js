@@ -68,8 +68,6 @@ function tableTannis(req, res, next) {
 //Routes 
 
 app.get('/', tableTannis, cricket, hokey, (req, res) => {
-    console.log("this is for test...")
-    console.log("another log..")
     res.render('index', {
         Tpayload: req.tableTannisApi,
         Cpayload: req.CricketApi,
