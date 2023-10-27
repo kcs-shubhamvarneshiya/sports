@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./src/index.js -e js,hbs"
+    "start": "nodemon ./src/index.js -e js,hbs",
+    "sonar": "sonar-scanner"
   },
   "keywords": [],
   "author": "",
