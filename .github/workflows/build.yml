@@ -24,6 +24,6 @@ jobs:
         sonar-scanner \
           -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
           -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
-          -Dsonar.projectKey=my-nodejs-project
+          -Dsonar.projectKey=sports
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
