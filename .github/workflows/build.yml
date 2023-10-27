@@ -1,23 +1,29 @@
-name: Build gate
+name: SonarQube Scan
 
 on:
   push:
     branches:
       - main
 
-
 jobs:
-  build:
-    name: Build
+  sonarqube:
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0 
-      - uses: sonarsource/sonarqube-scan-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-      - name: check workflow
-        run: echo `My secret key ${{secrets.SONAR_TOKEN}}`
+    - name: Checkout code
+      uses: actions/checkout@v2
 
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+
+    - name: Install SonarQube Scanner
+      run: npm install -g sonarqube-scanner
+
+    - name: SonarQube Scan
+      run: |
+        sonar-scanner \
+          -Dsonar.host.url=http://localhost:9000 \
+          -Dsonar.login=sqp_d66ddb36826ffe7bc6a7a9dcdee95bad25d89b31 \
+          -Dsonar.projectKey=sports
