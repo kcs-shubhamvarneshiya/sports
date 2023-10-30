@@ -12,7 +12,7 @@ jobs:
     steps:
     - name: Check SonarQube Quality Gate
       run: |
-        STATUS=$(curl -s "http://localhost:9000/api/qualitygates/project_status?projectKey=sports" -u "sqp_d66ddb36826ffe7bc6a7a9dcdee95bad25d89b31":)
+        STATUS=$(curl -s " http://sonarqube.kcspl.in:9000/api/qualitygates/project_status?projectKey=QulityGateTest" -u "4bfeceb86030431b89e0f94ac01e996405e8f016":)
         echo "SonarQube Quality Gate Status: $STATUS"
         if [ "$STATUS" == '{"projectStatus":{"status":"ERROR"}}' ]; then
         echo "SonarQube Quality Gate Failed"
