@@ -3,7 +3,7 @@ name: SonarQube report analysis and Quality gate
 on:
   push:
     branches:
-      - main
+      - '*'
 
 jobs:
   sonarqube:
@@ -31,10 +31,10 @@ jobs:
     - name: Check SonarQube Quality Gate
       run: |
         STATUS=$(curl -s "http://sonarqube.kcspl.in:9000/api/qualitygates/project_status?projectKey=QulityGateTest" -u "4bfeceb86030431b89e0f94ac01e996405e8f016" | jq -r '.projectStatus.status')
-        echo "SonarQube Quality Gate Status: $STATUS"
+       
         if [ "$STATUS" != "OK" ]; then
-          echo "SonarQube Quality Gate Failed. Status: $STATUS"
+          echo "SonarQube Quality Gate Failed !!"
           exit 1
         else
-          echo "SonarQube Quality gate passed!! Status: $STATUS" 
+          echo "SonarQube Quality Gate passed !!" 
         fi
