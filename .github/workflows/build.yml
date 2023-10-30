@@ -23,7 +23,7 @@ jobs:
         npm install -g sonarqube-scanner
         sonar-scanner \
           -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
+          -Dsonar.login=${{ SONAR_LOGIN_TOKEN }} \
           -Dsonar.projectKey=sports
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
