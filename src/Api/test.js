@@ -1,8 +1,8 @@
 //Import require modules
 const express = require('express');
 const hbs = require('hbs')
-const path = require('path')
-const logger = require('morgan')
+// const path = require('path')
+// const logger = require('morgan')
 require('colors')
 
 //Import required files
