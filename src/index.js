@@ -106,4 +106,5 @@ app.get('/*', (req, res) => {
 //Listen the server
 app.listen(8001, () => {
     console.log('Server is Running......'.yellow.bold)
+    console.log('Hello world')
 })
