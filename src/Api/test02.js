@@ -107,3 +107,32 @@ app.get('/sports/:id', (req, res) => {
 app.listen(8001, () => {
     console.log('Server is Running......'.yellow.bold)
 })
+
+
+app.get('/sports/:id', (req, res) => {
+    const params = req.params.id;
+
+    event(params, (err, rows) => {
+        if (err) {
+            return res.render('error', { msg: err.errorMsg })
+        }
+        res.render('result', { payload: rows.DATA, mname: 'Shubham Varneshiya' })
+    })
+
+})
+
+
+// catch unhandle page
+
+// app.get('/about/*', (req, res) => {
+//     res.render('error', { msg: 'Resource not found!!' })
+// })
+
+// app.get('/*', (req, res) => {
+//     res.render('error', { msg: '404 Not found' })
+// })
+
+//Listen the server
+app.listen(8001, () => {
+    console.log('Server is Running......'.yellow.bold)
+})
