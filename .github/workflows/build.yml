@@ -18,7 +18,7 @@ jobs:
       with:
         node-version: 14
 
-    - name: SonarQube Scan
+    - name: Install dependency and run SonarQube Scanner
       run: |
         npm install -g sonarqube-scanner
         sonar-scanner \
