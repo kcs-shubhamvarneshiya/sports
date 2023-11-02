@@ -38,7 +38,7 @@ const events = (s_id, result) => {
         else if (error.code == 'ERR_BAD_REQUEST' && error.response.status == 429) {
             result((error, { errorMsg: 'Your Free Api usege is end , Please upgrade your plan !!' }))
         }
-        //If any other error would be occure that will be handle here..
+        
         else {
             result(error.message)
         }
