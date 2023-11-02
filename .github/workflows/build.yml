@@ -24,9 +24,6 @@ jobs:
         sonar-scanner \
           -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
           -Dsonar.login=${{ secrets.SONAR_LOGIN_TOKEN }} \
-          -Dsonar.tests=./cypress \
-          -Dsonar.sources=./src \
-          -D"sonar.javascript.lcov.reportPaths=./combinedReports/lcov.info"
           -Dsonar.projectKey=QulityGateTest
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
