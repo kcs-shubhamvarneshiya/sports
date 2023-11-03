@@ -28,5 +28,8 @@ jobs:
           -Dsonar.projectKey=QulityGateTest
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+<<<<<<< HEAD
        
     
+=======
+>>>>>>> 67271c019f5b0468c50cab2bbd32370bfd572a9f
