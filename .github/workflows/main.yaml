@@ -1,9 +1,10 @@
 name: SonarQube report analysis and Quality gate
 
 on:
-    push:
-      branches:
-        - main
+    workflow_run:
+        workflows: ["SonarQube report analysis and Quality gate"]
+        types:
+        - completed
 
 jobs:
   sonarqube:
