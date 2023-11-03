@@ -1,10 +1,11 @@
 name: Cypress testcases
 
-on:
-    push:
-      branches:
-        - main
 
+on:
+    workflow_run:
+        workflows: ["SonarQube report analysis and Quality gate"]
+        types:
+        - completed        
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
