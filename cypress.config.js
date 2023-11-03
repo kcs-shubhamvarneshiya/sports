@@ -20,7 +20,7 @@ module.exports = defineConfig({
       quite: true,
       overwrite: false,
       html: false,
-      json: true,
+      json: true,   
   },
 },
 env: {
