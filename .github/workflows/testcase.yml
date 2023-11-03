@@ -1,10 +1,9 @@
 name: Cypress testcases
 
 on:
-    workflow_run:
-        workflows: ["build"]
-        types:
-          - completed
+    push:
+      branches:
+        - main
 
 jobs:
   cypress-run:
