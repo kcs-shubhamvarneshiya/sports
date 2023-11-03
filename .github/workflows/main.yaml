@@ -1,10 +1,10 @@
 name: SonarQube report analysis and Quality gate
 
 on:
-  workflow_run:
-    workflows: ["cypress testcases"]
-    types:
-      - completed
+    push:
+      branches:
+        - main
+
 jobs:
   sonarqube:
     runs-on: ubuntu-latest
