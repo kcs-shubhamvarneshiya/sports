@@ -8,7 +8,7 @@ module.exports = defineConfig({
         return config;
       },
     baseUrl: 'http://localhost:8001',
-    specPattern: "cypress/e2e/**/*.js",
+    specPattern: "cypress/e2e/*.spec.js",
     nodeVersion: "system",
     screenshotOnRunFailure: false,
     chromeWebSecurity: false,
@@ -22,6 +22,11 @@ module.exports = defineConfig({
       html: false,
       json: true,
   },
-}
+},
+env: {
+    codeCoverage: {
+      url: "http://localhost:3000/api/__coverage__",
+    },
+  },
 })
   

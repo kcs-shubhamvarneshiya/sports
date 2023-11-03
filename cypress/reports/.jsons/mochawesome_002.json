@@ -1,0 +1,126 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-11-03T06:13:37.823Z",
+    "end": "2023-11-03T06:13:40.537Z",
+    "duration": 2714,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d3eceed4-0e0c-4f7d-a07d-eb17cabfe78a",
+      "title": "",
+      "fullFile": "cypress\\e2e\\index.spec.js",
+      "file": "cypress\\e2e\\index.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e93ade1e-a3c5-4efa-bbc3-b8cf97de17ab",
+          "title": "Event rendering API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should be return sports event data",
+              "fullTitle": "Event rendering API Should be return sports event data",
+              "timedOut": null,
+              "duration": 2483,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"GET\",\n  url: `localhost:8001/sports/15`\n}).as(\"response\");\ncy.get(\"@response\").its(\"status\").should(\"equal\", 200);",
+              "err": {},
+              "uuid": "f924298c-7f83-45a5-8bd8-5a81e44061ac",
+              "parentUUID": "e93ade1e-a3c5-4efa-bbc3-b8cf97de17ab",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should render about page",
+              "fullTitle": "Event rendering API Should render about page",
+              "timedOut": null,
+              "duration": 46,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"GET\",\n  url: `localhost:8001/about/*`\n}).as(\"response\");\ncy.get(\"@response\").its(\"status\").should(\"equal\", 200);",
+              "err": {},
+              "uuid": "a23fc8ba-839f-46b8-89c9-689571e4425a",
+              "parentUUID": "e93ade1e-a3c5-4efa-bbc3-b8cf97de17ab",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f924298c-7f83-45a5-8bd8-5a81e44061ac",
+            "a23fc8ba-839f-46b8-89c9-689571e4425a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2529,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress\\reports\\.jsons",
+        "charts": true,
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
