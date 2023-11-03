@@ -2,7 +2,7 @@ name: SonarQube report analysis and Quality gate
 
 on:
     workflow_run:
-        workflows: ["SonarQube report analysis and Quality gate"]
+        workflows: ["Cypress testcases"]
         types:
         - completed
 

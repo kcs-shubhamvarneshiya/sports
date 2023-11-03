@@ -100,6 +100,7 @@ app.get('/about/*', (req, res) => {
 })
 
 app.get('/*', (req, res) => {
+    console.log("insert log..")
     res.render('error', { msg: '404 Not found' })
 })
 
