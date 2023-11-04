@@ -21,9 +21,6 @@ jobs:
     - name : Build the project
       run : npm run build
 
-    - name: Test testcases
-      run : |
-
     - name: Install dependency and scan the project
       run: |
         npm install -g sonarqube-scanner
