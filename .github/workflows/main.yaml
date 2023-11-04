@@ -33,8 +33,8 @@ jobs:
       run: |
         RESPONSE=$(curl -s "${{ secrets.SONAR_HOST_URL }}/api/qualitygates/project_status?projectKey=QulityGateTest" -u "${{ secrets.SONAR_TOKEN }}")
         STATUS=$(echo "$RESPONSE" | jq -r '.projectStatus.status')
-        METRICS=$(echo "RESPONSE" | jq '.projectStatus.conditions[0].metric')
-        METRICS_STATUS=$(echo "RESPONSE" | jq '.projectStatus.conditions[0].status')
+        METRICS=$(echo "RESPONSE" | jq -r '.projectStatus.conditions')
+        METRICS_STATUS=$$(echo "RESPONSE" | jq '.projectStatus.conditions')
         
         echo "Status of project ${STATUS}"
         
