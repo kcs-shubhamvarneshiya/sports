@@ -18,7 +18,13 @@ jobs:
       with:
         node-version: 14
 
-    - name: Install dependency and run SonarQube Scanner
+    - name : Build the project
+      run : npm run build
+
+    - name: Test testcases
+      run : |
+
+    - name: Install dependency and scan the project
       run: |
         npm install -g sonarqube-scanner
         sonar-scanner \
@@ -28,12 +34,12 @@ jobs:
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-    - name: Check SonarQube Quality Gate
+    - name: Check quality gate status
       run: |
         STATUS=$(curl -s `${{ secrets.SONAR_HOST_URL }}/api/qualitygates/project_status?projectKey=QulityGateTest` -u `${{ secrets.SONAR_TOKEN }}` | jq -r '.projectStatus.status')
         RESPONSE=$(curl -s `${{ secrets.SONAR_HOST_URL }}/api/qualitygates/project_status?projectKey=QulityGateTest` -u `${{ secrets.SONAR_TOKEN }}`) 
         
-        echo "$RESPONSE"
+        
 
         if [ "$STATUS" != "OK" ]; then
           echo "SonarQube Quality Gate Failed !!"
