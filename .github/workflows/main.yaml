@@ -33,14 +33,14 @@ jobs:
       run: |
         RESPONSE=$(curl -s "${{ secrets.SONAR_HOST_URL }}/api/qualitygates/project_status?projectKey=QulityGateTest" -u "${{ secrets.SONAR_TOKEN }}")
         STATUS=$(echo "$RESPONSE" | jq -r '.projectStatus.status')
-        METRICS=$(echo "RESPONSE" | jq -r '.projectStatus.conditions[0].metric)
-        METRICS_STATUS=$(echo "RESPONSE" | jq -r '.projectStatus.conditions[0].status)
+        METRICS=$(echo "RESPONSE" | jq '.projectStatus.conditions[0].metric')
+        METRICS_STATUS=$(echo "RESPONSE" | jq '.projectStatus.conditions[0].status')
         
         echo "Status of project ${STATUS}"
         
         echo "metric name ${METRIC}"
         echo "metric status ${METRICS_STATUS}"
-        
+
         if [ "$STATUS" != "OK" ]; then
           echo "SonarQube Quality Gate Failed !!"
           exit 1
