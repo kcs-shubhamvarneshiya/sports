@@ -34,7 +34,7 @@ jobs:
         RESPONSE=$(curl -s "${{ secrets.SONAR_HOST_URL }}/api/qualitygates/project_status?projectKey=QulityGateTest" -u "${{ secrets.SONAR_TOKEN }}")
         STATUS=$(echo "$RESPONSE" | jq -r '.projectStatus.status')
         
-        CONDITION_METRICS=($(echo "$RESPONSE" | jq -r '.projectStatus.conditions[].metric'))
+        CONDITION_METRICS=($(echo "$RESPONSE" | jq -r '.projectStatus.conditions[0].metric'))
           echo "Metrics for all conditions: ${CONDITION_METRICS[0]}"
 
         if [ "$STATUS" != "OK" ]; then
