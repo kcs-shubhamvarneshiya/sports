@@ -21,6 +21,7 @@ jobs:
     - name: Run cypress tests
       run: |
        echo "synchronize Pull Request"
+       echo "another test is running"
         
 
     - name: Build and analyze the project with SonarQube
