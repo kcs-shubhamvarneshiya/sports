@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon ./src/index.js -e js,hbs",
     "sonar": "sonar-scanner",
-    "build": "npm run build"
+    "build": "node build",
+    "test": "cypress run"
   },
   "keywords": [],
   "author": "",
