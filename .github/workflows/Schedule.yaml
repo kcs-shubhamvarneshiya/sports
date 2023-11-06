@@ -1,9 +1,8 @@
-name: SonarQube report analysis and Quality gate
+name: SonarQube report analysis and Quality gate on Scheduled event
 
 on:
-  push:
-    branches:
-      - "*"
+  schedule:
+    - cron: '35 18 6 11 MON' # MINUTE HOURS DAY MONTH DAY(weekly) 
 
 jobs:
   sonarqube:
@@ -20,6 +19,7 @@ jobs:
 
     - name: Run cypress tests
       run: |
+       echo "Runninng.."
         
 
     - name: Build and analyze the project with SonarQube

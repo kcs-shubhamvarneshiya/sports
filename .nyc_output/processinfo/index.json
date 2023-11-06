@@ -1,0 +1,1 @@
+{"processes":{"29e6f054-6e31-4ca0-8b04-e9716ef6a3ef":{"parent":null,"children":["711592cb-8549-40a6-bf60-fafd3d0db18a"]},"711592cb-8549-40a6-bf60-fafd3d0db18a":{"parent":"29e6f054-6e31-4ca0-8b04-e9716ef6a3ef","children":[]}},"files":{"D:\\OneDrive - Krish Compusoft Services Pvt Ltd\\NodeJs\\Sports\\cypress.config.js":["711592cb-8549-40a6-bf60-fafd3d0db18a"]},"externalIds":{}}

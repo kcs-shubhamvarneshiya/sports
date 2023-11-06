@@ -1,7 +1,6 @@
 const axios = require('axios')
 
 const events = (s_id, result) => {
-
     const parameters = {
         method: 'GET',
         url: 'https://flashlive-sports.p.rapidapi.com/v1/events/list',
