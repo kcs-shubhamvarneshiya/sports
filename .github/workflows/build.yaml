@@ -20,7 +20,7 @@ jobs:
 
     - name: Run cypress tests
       run: |
-        echo "Runninng ""
+       echo "Runninng.."
         
 
     - name: Build and analyze the project with SonarQube
