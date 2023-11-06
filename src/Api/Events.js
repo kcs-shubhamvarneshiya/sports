@@ -1,7 +1,7 @@
 const axios = require('axios')
 
 const events = (s_id, result) => {
-
+    console.log("loading event...")
     const parameters = {
         method: 'GET',
         url: 'https://flashlive-sports.p.rapidapi.com/v1/events/list',
