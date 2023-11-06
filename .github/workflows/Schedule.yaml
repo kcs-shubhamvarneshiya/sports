@@ -1,4 +1,4 @@
-name: SonarQube report analysis and Quality gate on Scheduled event
+name: Quality gate on Scheduled event
 
 on:
   schedule:
