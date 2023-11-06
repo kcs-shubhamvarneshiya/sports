@@ -3,7 +3,8 @@ const { defineConfig } = require('cypress')
 module.exports = defineConfig({
   e2e: {
     baseUrl: 'http://localhost:8001',
-    specPattern : "cypress/e2e/**/*.js",
+    supportFile : "cypress/support/e2e.js",
+    specPattern : "cypress/e2e/API/*.js",
     nodeVersion: "system",
     screenshotOnRunFailure: false,
     chromeWebSecurity: false,
@@ -18,4 +19,7 @@ module.exports = defineConfig({
         json: true,
       },
   },
+  coverage :{
+    "coverageFolder": "coverage/cypress"
+  }
 })

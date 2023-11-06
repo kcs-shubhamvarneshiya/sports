@@ -7,7 +7,8 @@
     "start": "nodemon ./src/index.js -e js,hbs",
     "sonar": "sonar-scanner",
     "build": "node build",
-    "test": "cypress run"
+    "test": "cypress run",
+    "test:coverage": "nyc --reporter=text-summary cypress run"
   },
   "keywords": [],
   "author": "",
@@ -22,8 +23,10 @@
     "nodemon": "^2.0.20"
   },
   "devDependencies": {
-    "cypress": "^13.3.3",
+    "cypress": "^13.4.0",
     "cypress-mochawesome-reporter": "^3.6.1",
+    "istanbul-lib-coverage": "^3.2.0",
+    "nyc": "^15.1.0",
     "sonarqube-scanner": "^3.1.0"
   }
 }
