@@ -1,10 +1,9 @@
 name: SonarQube report analysis and Quality gate
 
 on:
-    workflow_run:
-        workflows: ["Cypress testcases"]
-        types:
-        - completed
+  push:
+    branches:
+      - "*"
 
 jobs:
   sonarqube:
@@ -19,12 +18,29 @@ jobs:
       with:
         node-version: 14
 
-    - name: Install dependency and run SonarQube Scanner
+    - name: Run cypress tests
+      run: |
+        
+
+    - name: Build and analyze the project with SonarQube
       run: |
         npm install -g sonarqube-scanner
         sonar-scanner \
           -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
           -Dsonar.login=${{ secrets.SONAR_LOGIN_TOKEN }} \
-          -Dsonar.projectKey=QulityGateTest
+          -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+      
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+    - name: Check quality gate status
+      run: |
+        RESPONSE=$(curl -s "${{ secrets.SONAR_HOST_URL }}/api/qualitygates/project_status?projectKey=QulityGateTest" -u "${{ secrets.SONAR_TOKEN }}")
+        STATUS=$(echo "$RESPONSE" | jq -r '.projectStatus.status')
+        
+        if [ "$STATUS" != "OK" ]; then
+          echo "SonarQube Quality Gate Failed !!"
+          exit 1
+        else
+          echo "SonarQube Quality Gate passed !!"
+        fi
