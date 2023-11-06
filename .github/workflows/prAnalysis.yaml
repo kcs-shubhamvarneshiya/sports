@@ -1,9 +1,9 @@
-name: SonarQube report analysis and Quality gate
+name: SonarQube report analysis and Quality gate on pull request
 
 on:
-  push:
+  pull_request: 
     branches:
-      - "*"
+      - main
 
 jobs:
   sonarqube:
@@ -20,6 +20,7 @@ jobs:
 
     - name: Run cypress tests
       run: |
+       echo "Runninng.."
         
 
     - name: Build and analyze the project with SonarQube
