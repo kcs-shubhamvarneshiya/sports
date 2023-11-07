@@ -7,7 +7,7 @@ module.exports = defineConfig(
       return config;
     },
     baseUrl: 'http://localhost:8001',
-    specPattern : "cypress/e2e/API/*.js",
+    specPattern : "cypress/e2e/**/*spec.js",
     nodeVersion: "system",
     screenshotOnRunFailure: false,
     chromeWebSecurity: false,
