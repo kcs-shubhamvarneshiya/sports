@@ -2,7 +2,8 @@ name: Quality gate on Scheduled event
 
 on:
   schedule:
-    - cron: '*/5 * * * *' # MINUTE HOURS DAY MONTH DAY(weekly) 
+    - cron : '5 4 * * sun'
+    #- cron: '*/5 * * * *' # MINUTE HOURS DAY MONTH DAY(weekly) 
 
 jobs:
   sonarqube:
