@@ -8,7 +8,7 @@
     "sonar": "sonar-scanner",
     "build": "node build",
     "test": "cypress run",
-    "test:coverage": "nyc --reporter=text-summary cypress run"
+    "test:coverage": "npx nyc report --reporter=lcov --report-dir=combinedReports"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +23,7 @@
     "nodemon": "^2.0.20"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.12.9",
     "cypress": "^13.4.0",
     "cypress-mochawesome-reporter": "^3.6.1",
     "istanbul-lib-coverage": "^3.2.0",
