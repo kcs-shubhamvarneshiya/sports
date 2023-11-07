@@ -1,9 +1,12 @@
 const { defineConfig } = require('cypress')
 
-module.exports = defineConfig({
+module.exports = defineConfig(
+  {
   e2e: {
+    setupNodeEvents(on,config){
+      return config;
+    },
     baseUrl: 'http://localhost:8001',
-    supportFile : "cypress/support/e2e.js",
     specPattern : "cypress/e2e/API/*.js",
     nodeVersion: "system",
     screenshotOnRunFailure: false,
@@ -19,7 +22,9 @@ module.exports = defineConfig({
         json: true,
       },
   },
-  coverage :{
-    "coverageFolder": "coverage/cypress"
+  env: {
+    codeCoverage: {
+      url: "http://localhost:3000/api/__coverage__",
+    },
   }
 })

@@ -1,7 +1,7 @@
 describe('Event handlers',()=>{
 
     it('Should return event data',()=>{
-        cyan.request({
+        cy.request({
             method : "GET",
             url : `http://localhost:8001/`,
             failOnStatusCode : false
