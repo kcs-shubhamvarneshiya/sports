@@ -1,4 +1,4 @@
-name: SonarQube report analysis and Quality gate on pull request
+name: Quality gate on pull request
 
 on:
   pull_request: 

@@ -1,4 +1,4 @@
-name: SonarQube report analysis and Quality gate
+name: Quality gate staus on push event
 
 on:
   push:
@@ -16,19 +16,25 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: 16
 
-      - name: Run cypress tests
+      - name: Run cypress server and generate report
         run: |
+         npm install cypress 
+         npm cypress run
+         npx nyc report --reporter=lcov --report-dir=combinedReports
 
       - name: Build and analyze the project with SonarQube
         run: |
           npm install -g sonarqube-scanner
           sonar-scanner \
+            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} \
+            -Dsonar.source=./src \
+            -Dsonar.test =./cypress \
             -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
             -Dsonar.login=${{ secrets.SONAR_LOGIN_TOKEN }} \
-            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
-
+            -Dsonar.javascript.lcov.reportPaths=./combinedReports/lcov.info
+            
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
