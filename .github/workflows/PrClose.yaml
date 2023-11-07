@@ -1,8 +1,9 @@
-name: Quality gate on Scheduled event
+name: Quality gate status on close pull request
 
 on:
-  schedule:
-    - cron: '*/5 * * * *' # MINUTE HOURS DAY MONTH DAY(weekly) 
+  pull_request: 
+    types: 
+      - closed
 
 jobs:
   sonarqube:
@@ -19,7 +20,7 @@ jobs:
 
     - name: Run cypress tests
       run: |
-       echo "Runninng.."
+       echo "close pull request"
         
 
     - name: Build and analyze the project with SonarQube
