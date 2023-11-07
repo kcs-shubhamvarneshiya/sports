@@ -42,7 +42,7 @@ jobs:
           sonar-scanner \
             -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} \
             -Dsonar.source=./src \
-            -Dsonar.test =./cypress \
+            -Dsonar.test=./cypress \
             -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
             -Dsonar.login=${{ secrets.SONAR_LOGIN_TOKEN }} \
             -Dsonar.javascript.lcov.reportPaths=./combinedReports/lcov.info
