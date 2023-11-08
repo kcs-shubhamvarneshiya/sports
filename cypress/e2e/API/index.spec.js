@@ -30,7 +30,7 @@ describe('Event handlers',()=>{
         }).as("response")
 
         cy.get("@response")
-        .its("status").should("equal",200);
+        .its("status").should("equal",404);
     })
 
     it('Should return error message when url is invalid url base url',()=>{
@@ -41,7 +41,7 @@ describe('Event handlers',()=>{
         }).as("response")
 
         cy.get("@response")
-        .its("status").should("equal",200);
+        .its("status").should("equal",404);
     })
 
     it('Should return sports details',()=>{
