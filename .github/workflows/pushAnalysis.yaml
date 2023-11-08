@@ -22,19 +22,18 @@ jobs:
         with:
           node-version: 14
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-            start: npm start
-            wait-on: 'http://localhost:8001'
-            record: true
-            parallel: true 
+      - name: Run Cypress tests and upload results to Cypress Dashboard
+        run: |
+            npx cypress run --record --key ${{ secrets.CYPRESS_RECORD_KEY }}
         env:
             CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-      
-      - name: Run cypress server and generate report
+  
+      - name: Generate HTML report from Cypress Dashboard
         run: |
-         npx nyc report --reporter=lcov --report-dir=combinedReports
+            npx marge https://dashboard.cypress.io/projects/<your-dashboard-project-id>/runs
+        env:
+            DASHBOARD_PROJECT_ID: <your-dashboard-project-id>
+            DASHBOARD_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
       - name: Build and analyze the project with SonarQube
         run: |
