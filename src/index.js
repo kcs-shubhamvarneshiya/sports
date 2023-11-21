@@ -72,6 +72,7 @@ function tableTannis(req, res, next) {
 //Routes 
 
 app.get('/', tableTannis, cricket, hokey, (req, res) => {
+    console.log("hitting......")
     res.status(200).json({
         Data : {
             TableTanisPayload : req.tableTannisApi,
@@ -83,15 +84,16 @@ app.get('/', tableTannis, cricket, hokey, (req, res) => {
 })
 
 app.get('/about', (req, res) => {
+    console.log("hitting......")
     res.status(200).json({
         message : "About us page render successfully.."
     })
 })
 
 app.get('/sports/:id', (req, res) => {
+    console.log("hitting......")
     const params = req.params.id;
-    try {
-    
+    try {  
         event(params, (err, rows) => {
             if (err) {
                 return res.render('error', { msg: err.errorMsg })
@@ -115,6 +117,7 @@ app.get('/sports/:id', (req, res) => {
 // catch unhandle page
 
 app.get('/about/*', (req, res) => {
+    console.log("hitting......")
     res.status(404).json({
         message : "Resource not found !!"
     })
