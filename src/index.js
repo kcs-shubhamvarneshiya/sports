@@ -1,6 +1,10 @@
 //Import require modules
 const express = require('express');
+
+/**Remove below line to avoid code smells */
 const hbs = require('hbs')
+const page = require('../public/stylesheets/style.css')
+
 const path = require('path')
 const logger = require('morgan')
 require('colors')
