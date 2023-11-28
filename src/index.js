@@ -68,6 +68,10 @@ function tableTannis(req, res, next) {
 
 }
 
+function pas23Repo(){
+    // code
+}
+pas23Repo();
 
 //Routes 
 

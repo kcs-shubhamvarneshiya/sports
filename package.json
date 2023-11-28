@@ -6,6 +6,7 @@
   "scripts": {
     "start": "nodemon ./src/index.js -e js,hbs",
     "sonar": "sonar-scanner",
+    "lint": "npx eslint ./ --format json --output-file eslint-report.json",
     "build": "node build",
     "test": "cypress run",
     "test:coverage": "npx nyc report --reporter=lcov --report-dir=combinedReports"
@@ -20,12 +21,16 @@
     "hbs": "^4.2.0",
     "morgan": "^1.10.0",
     "node-fetch": "^3.3.0",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "sonar-scanner": "^3.1.0"
   },
   "devDependencies": {
     "@cypress/code-coverage": "^3.12.9",
     "cypress": "^13.4.0",
     "cypress-mochawesome-reporter": "^3.6.1",
+    "eslint": "^8.54.0",
+    "eslint-plugin-eslint-plugin": "^5.1.1",
+    "eslint-plugin-eslint-rules": "^0.0.2",
     "istanbul-lib-coverage": "^3.2.0",
     "nyc": "^15.1.0",
     "sonarqube-scanner": "^3.1.0"
